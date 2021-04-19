@@ -1,0 +1,40 @@
+{
+  "name": "vs-solutions",
+  "version": "1.0.0",
+  "description": "web-app for buying game accounts",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longetka/VSsolutions.git"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "mongodb"
+  ],
+  "author": "Denis Cherepanov <longetka@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/longetka/VSsolutions/issues"
+  },
+  "homepage": "https://github.com/longetka/VSsolutions#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^6.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.10.0",
+    "googleapis": "^71.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.3",
+    "nodemon": "^2.0.7"
+  }
+}
