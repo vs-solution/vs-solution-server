@@ -2,11 +2,12 @@ require('dotenv').config();
 
 const express			= require('express');
 const mongoose			= require('mongoose');
-// const bodyParser		= require('body-parser');
+const expressUpload		= require('express-fileupload');
 const app				= express();
 const PORT				= process.env.PORT || 5000;
 
 app.use(express.json({extended: true}));
+app.use(expressUpload());
 app.use('/sell/', require('./routes/reqData'));
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/offer', require('./routes/offer.routes'));

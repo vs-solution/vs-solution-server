@@ -2,10 +2,9 @@ const {Schema, model, Types} = require('mongoose');
 
 const Offer = new Schema(
 	{
-		owner: {
-			type: Types.ObjectId, 
-			ref: 'User'
-		},
+		gameName: {type: String},
+		ownerId: {type: Types.ObjectId, ref: 'User'},
+		ownerName: { type: String },
 		price: {
 			type: String,
 		},

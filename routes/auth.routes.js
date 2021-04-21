@@ -73,7 +73,7 @@ router.post('/login',
 			{ expiresIn: '1h' }
 		);
 
-		res.json({token, userId: user.id});
+		res.json({token, userId: user.id, name: user.name});
 
 });
 

@@ -1,14 +1,15 @@
 const Offer = require('../models/Offer');
 
 const offerDb = async (data) => {
-	const offer = await new Offer({ 
-		owner: data.userId, 
-		price: data.price, 
-		contacts: data.contacts 
+	const { price, contacts, name, userId, gameName } = data;
+	const offer = new Offer({
+		gameName,
+		ownerId: userId,
+		ownerName: name,
+		price: price ? price : dollar,
+		contacts
 	});
 	await offer.save();
-
-	return offer;
 };
 
 module.exports = offerDb;

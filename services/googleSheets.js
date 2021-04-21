@@ -15,7 +15,7 @@ const googleSheets = async (sheetPageName, columnTo, dataValues) => {
 	const googleSheets = google.sheets({version: "v4", auth: client});
 
 	// Write rows to spreadsheet
-	const columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+	const columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 
 	await googleSheets.spreadsheets.values.append({
 		auth,
