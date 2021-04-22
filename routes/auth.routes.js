@@ -25,7 +25,7 @@ router.post('/register',
 		const isUsed = await User.findOne({ email, name });
 
 		if (isUsed) {
-			return res.status(300).json({message: 'Данный Email/Имя уже заняты, попробуйте другое'})
+			return res.status(202).json({message: 'Данный Email/Имя уже заняты, попробуйте другое'})
 		};
 
 		const hashedPassword = await bcrypt.hash(password, 12);
@@ -56,13 +56,13 @@ router.post('/login',
 		const user = await User.findOne({ email });
 
 		if (!user) {
-			return res.status(400).json({message: "Такого пользователя не существует"})
+			return res.status(202).json({message: "Такого пользователя не существует. Зарегистрируйтесь"})
 		};
 
 		const isMatch = bcrypt.compare(password, user.password);
 
 		if(!isMatch) {
-			return res.status(400).json({message: "Неверный пароль"})
+			return res.status(202).json({message: "Неверный пароль"})
 		};
 
 		const jwtSecret = process.env.SECRET;
