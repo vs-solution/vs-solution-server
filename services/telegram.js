@@ -8,12 +8,10 @@ const sendNotify = async (message) => {
 	await bot.sendMessage(process.env.TLG_CHAT_ID, message);
 };
 
-const sendScreenshot = async (photo) => {
-	const fileOptions = {
-		filename: photo.name,
-		contentType: photo.mimetype,
-	  };
-	await bot.sendPhoto(process.env.TLG_CHAT_ID, photo.data, fileOptions);
+const sendScreenshot = (photo) => {
+	photo.map((item) => {
+	  bot.sendPhoto(process.env.TLG_CHAT_ID, item.data, {filename: item.nama, contentType: item.mimetype});
+	})
 }
 
 module.exports = {sendNotify, sendScreenshot};
