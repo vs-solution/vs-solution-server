@@ -8,6 +8,7 @@ const telegram = require('../services/telegram');
 // Brawl Stars
 router.post('/account/brawl', (req, res) => {
 	const reqData = Object.values(req.body); 			// Create array for Google Sheets
+	const screenshot = req.files.screenshot;			// Get image from Form
 	const data = req.body; 								// Get data for message
 	const message = ` 
 		Отправлена анкета!
@@ -21,6 +22,7 @@ router.post('/account/brawl', (req, res) => {
 	googleSheets('Brawl Stars', 7, reqData);			// Send data to Google Sheets
 	offerDb(req.body);									// Send data to MongoDB
 	telegram.sendNotify(message);						// Send Message to Telegram
+	telegram.sendScreenshot(screenshot);				// Send image to Telegram
 });
 
 // Albion Online
